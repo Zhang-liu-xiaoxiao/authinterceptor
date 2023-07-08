@@ -4,11 +4,14 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class UserService {
 
+
+    @Resource
     private final UserMapper userMapper;
 
     public UserService(UserMapper userMapper) {

@@ -5,6 +5,15 @@ public class Info {
     private String title;
     private String detail;
     private Integer userId;
+    private String dept;
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
 
     public Integer getId() {
         return id;

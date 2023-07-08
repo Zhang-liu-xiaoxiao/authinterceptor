@@ -4,7 +4,18 @@ public class User {
     private Integer id;
     private String name;
     private String email;
-    //...getter and setter
+
+
+    private Integer auth;
+
+    public Integer getAuth() {
+        return auth;
+    }
+
+    public void setAuth(Integer auth) {
+        this.auth = auth;
+    }
+
 
     public Integer getId() {
         return id;
