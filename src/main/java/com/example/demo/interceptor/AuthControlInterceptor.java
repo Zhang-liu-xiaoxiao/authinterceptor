@@ -2,7 +2,7 @@ package com.example.demo.interceptor;
 
 import com.example.demo.enums.AuthLevel;
 import com.example.demo.model.User;
-import com.example.demo.anotation.AuthControl;
+import com.example.demo.annotation.AuthControl;
 import com.example.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
