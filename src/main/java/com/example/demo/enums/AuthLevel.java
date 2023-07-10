@@ -1,4 +1,4 @@
-package com.example.demo.Enum;
+package com.example.demo.enums;
 
 public enum AuthLevel {
     ALL(0, "all auth"), ADMIN(1, "admin auth"), ROOT(2, "root auth");

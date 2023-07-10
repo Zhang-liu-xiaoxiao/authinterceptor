@@ -1,6 +1,6 @@
 package com.example.demo.anotation;
 
-import com.example.demo.Enum.AuthLevel;
+import com.example.demo.enums.AuthLevel;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
