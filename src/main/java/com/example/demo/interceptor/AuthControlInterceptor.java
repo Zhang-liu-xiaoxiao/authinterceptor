@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 @Configuration
-public class AuthControlAcceptor extends HandlerInterceptorAdapter {
-    private static final Logger logger = LoggerFactory.getLogger(AuthControlAcceptor.class);
+public class AuthControlInterceptor extends HandlerInterceptorAdapter {
+    private static final Logger logger = LoggerFactory.getLogger(AuthControlInterceptor.class);
 
     @Autowired
     UserService userService;
