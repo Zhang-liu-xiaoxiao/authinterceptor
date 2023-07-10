@@ -2,7 +2,7 @@ package com.example.demo.interceptor;
 
 import com.example.demo.Enum.AuthLevel;
 import com.example.demo.model.User;
-import com.example.demo.nnotation.AuthControl;
+import com.example.demo.anotation.AuthControl;
 import com.example.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +19,7 @@ import java.lang.reflect.Method;
 public class AuthControlInterceptor extends HandlerInterceptorAdapter {
     private static final Logger logger = LoggerFactory.getLogger(AuthControlInterceptor.class);
 
+    private final String USER_ID = "user-id";
     @Autowired
     UserService userService;
 
@@ -41,14 +42,14 @@ public class AuthControlInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         if (authControl.value().getAuthLevel() >= AuthLevel.ALL.getAuthLevel()) {
-            // 如果没带user_id, 直接返回401
-            if (request.getIntHeader("user_id") == 0) {
+            // 如果没带USER_ID, 直接返回401
+            if (request.getIntHeader(USER_ID) == 0) {
                 response.setStatus(401);
                 logger.info("authControl " + method.getName() + " Not logged in");
                 return false;
             }
 
-            User user = userService.findById(request.getIntHeader("user_id"));
+            User user = userService.findById(request.getIntHeader(USER_ID));
             if (user == null || user.getId() == null) {
                 response.setStatus(401);
 

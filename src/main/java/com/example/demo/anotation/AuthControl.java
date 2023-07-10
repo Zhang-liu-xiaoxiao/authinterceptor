@@ -1,4 +1,4 @@
-package com.example.demo.nnotation;
+package com.example.demo.anotation;
 
 import com.example.demo.Enum.AuthLevel;
 

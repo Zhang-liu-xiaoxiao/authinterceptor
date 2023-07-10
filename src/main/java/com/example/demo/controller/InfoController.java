@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.nnotation.AuthControl;
+import com.example.demo.anotation.AuthControl;
 import com.example.demo.Enum.AuthLevel;
 import com.example.demo.model.Info;
 import com.example.demo.service.InfoService;
