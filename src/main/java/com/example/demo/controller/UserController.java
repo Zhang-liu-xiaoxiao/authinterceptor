@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    @AuthControl(AuthLevel.ADMIN)
+    @AuthControl(AuthLevel.ALL)
     public User findById(@PathVariable Integer id) {
         return userService.findById(id);
     }

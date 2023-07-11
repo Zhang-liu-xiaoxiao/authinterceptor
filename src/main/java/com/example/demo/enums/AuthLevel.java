@@ -1,5 +1,9 @@
 package com.example.demo.enums;
 
+/**
+ * @author zlxx
+ */
+
 public enum AuthLevel {
     ALL(0, "all auth"), ADMIN(1, "admin auth"), ROOT(2, "root auth");
 

@@ -56,7 +56,7 @@ public class AuthControlInterceptor extends HandlerInterceptorAdapter {
                 logger.info("authControl " + method.getName() + " Not logged in");
                 return false;
             }
-            if (user.getAuth() < authControl.value().getAuthLevel()) {
+            if (user.getAuth() <= authControl.value().getAuthLevel()) {
                 response.setStatus(403);
                 logger.info("authControl " + method.getName() + " No authority");
                 return false;
