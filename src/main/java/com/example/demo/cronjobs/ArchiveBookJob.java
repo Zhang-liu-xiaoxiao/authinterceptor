@@ -24,7 +24,7 @@ public class ArchiveBookJob {
     @Resource
     private BookMapper bookMapper;
 
-    @Scheduled(cron = "0/10 * *  * * ? ")
+//    @Scheduled(cron = "0/10 * *  * * ? ")
     public void execute() {
         logger.info(String.format("开始执行归档任务,当前时间为:{%d}", System.currentTimeMillis()));
         List<Book> books = bookMapper.selectList(null);
@@ -39,7 +39,6 @@ public class ArchiveBookJob {
                 threadPoolExecutor.getCompletedTaskCount(),
                 threadPoolExecutor.getTaskCount()));
 
-        // 把books分为2份
         int pieceNum = (int) (books.size() / 2);
         for (int i = 0; i < 2; i++) {
             int start = i * pieceNum;
@@ -52,7 +51,6 @@ public class ArchiveBookJob {
             Consumer<List<Book>> consumer = (List<Book> bookList) -> {
                 logger.info(String.format("线程:{%s}, 开始处理book信息", Thread.currentThread().getName()));
                 bookList.forEach(book -> {
-                    // 打印线程，以及book信息
                     logger.info(String.format("线程:{%s}, book信息:{%s}", Thread.currentThread().getName(), book.toString()));
                 });
             };
@@ -63,7 +61,6 @@ public class ArchiveBookJob {
 
             threadPoolExecutor.execute(run);
         }
-        // 等待所有任务执行完毕
         while (threadPoolExecutor.getActiveCount() != 0) {
             try {
                 Thread.sleep(1000);
